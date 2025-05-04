@@ -1,6 +1,6 @@
 services:
   backend:
-    build: ./pern-backend
+    image: marijahmed/blog-backend
     container_name: backendcont
     env_file:
       - ./pern-backend/.env
@@ -8,8 +8,7 @@ services:
       - blogapp-network
 
   frontend:
-    build:
-      context: ./frontend
+    image: marijahmed/blog-frontend
 
     container_name: frontendcont
     ports:

@@ -48,9 +48,7 @@ api.interceptors.response.use(
             console.log("🔄 Refreshing access token...");
 
             // ✅ Attempt to refresh the access token
-            const refreshResponse = await api.post(
-              `${import.meta.env.VITE_BASEURL}/auth/refresh-token`
-            );
+            const refreshResponse = await api.post(`/api/auth/refresh-token`);
             const newToken = refreshResponse.data.accessToken;
 
             if (!newToken) {

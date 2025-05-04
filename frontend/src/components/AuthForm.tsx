@@ -27,9 +27,7 @@ const AuthForm = () => {
     setStatus("idle");
     setMessage("");
 
-    const endpoint = isLogin
-      ? `${import.meta.env.VITE_BASEURL}/auth/login`
-      : `${import.meta.env.VITE_BASEURL}/auth/register`;
+    const endpoint = isLogin ? `/api/auth/login` : `/api/auth/register`;
 
     if (isLogin) {
       try {

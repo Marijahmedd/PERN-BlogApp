@@ -31,7 +31,7 @@ export default function ResetPassword() {
     }
 
     axios
-      .get(`${import.meta.env.VITE_BASEURL}/auth/validate-token?token=${token}`)
+      .get(`/api/auth/validate-token?token=${token}`)
       .then(() => {
         setTokenValid(true);
       })
@@ -43,14 +43,11 @@ export default function ResetPassword() {
 
   async function onSubmit(data: Inputs) {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASEURL}/auth/set-password`,
-        {
-          token,
-          password: data.password,
-          passwordAgain: data.confirmPassword,
-        }
-      );
+      const response = await axios.post(`/api/auth/set-password`, {
+        token,
+        password: data.password,
+        passwordAgain: data.confirmPassword,
+      });
       setMessage(response.data.message);
       setTimeout(() => navigate("/register"), 3000);
     } catch (error: any) {

@@ -46,7 +46,7 @@ export default function BlogForm() {
 
       console.log(imageResponse.data.secure_url);
       console.log(imageResponse.data.public_id);
-      await axios.post(`${import.meta.env.VITE_BASEURL}/blog`, {
+      await axios.post(`/api/blog`, {
         caption: data.caption,
         url: imageResponse.data.secure_url,
         publicId: imageResponse.data.public_id,

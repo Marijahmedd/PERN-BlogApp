@@ -25,9 +25,7 @@ export default function BlogDetail() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_BASEURL}/blog/${id}`
-        );
+        const res = await axios.get(`/api/blog/${id}`);
         setBlog(res.data);
         console.log(res.data);
       } catch (error) {
@@ -47,7 +45,7 @@ export default function BlogDetail() {
 
     setDeleting(true);
     try {
-      await axios.delete(`${import.meta.env.VITE_BASEURL}/blog/${id}`);
+      await axios.delete(`/api/blog/${id}`);
       navigate("/blog");
     } catch (err) {
       console.error("Delete failed", err);

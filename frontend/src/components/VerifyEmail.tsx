@@ -21,12 +21,9 @@ const VerifyEmail = () => {
 
     const verify = async () => {
       try {
-        const response = await axios.post(
-          `${import.meta.env.VITE_BASEURL}/auth/verify-email`,
-          {
-            token,
-          }
-        );
+        const response = await axios.post(`/api/auth/verify-email`, {
+          token,
+        });
 
         setStatus("success");
         setMessage(response.data.message);

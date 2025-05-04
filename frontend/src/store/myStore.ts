@@ -29,10 +29,10 @@ export const useStore = create<AuthState>()(
       },
       login: async (email, password) => {
         try {
-          const loginResponse = await axios.post(
-            `${import.meta.env.VITE_BASEURL}/auth/login`,
-            { email, password }
-          );
+          const loginResponse = await axios.post(`/api/auth/login`, {
+            email,
+            password,
+          });
 
           if (loginResponse.status === 200) {
             const token = loginResponse.data.accessToken;
@@ -40,10 +40,9 @@ export const useStore = create<AuthState>()(
 
             set({ accessToken: token }); // ✅ Store token before next request
 
-            const authResponse = await axios.get(
-              `${import.meta.env.VITE_BASEURL}/auth/check-auth`,
-              { withCredentials: true }
-            );
+            const authResponse = await axios.get(`/api/auth/check-auth`, {
+              withCredentials: true,
+            });
 
             set({ user: authResponse.data.user, isAuthenticated: true });
           }

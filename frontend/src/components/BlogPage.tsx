@@ -10,7 +10,7 @@ const BlogPage = () => {
   useEffect(() => {
     async function GetBlogs() {
       try {
-        const result = await axios.get(`${import.meta.env.VITE_BASEURL}/blog`, {
+        const result = await axios.get(`/api/blog`, {
           withCredentials: true, // ✅ important
         });
         setBlogData(result.data);

@@ -18,10 +18,7 @@ export default function ForgotPassword() {
 
   async function onSubmit(data: Inputs) {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BASEURL}/auth/password-reset`,
-        data
-      );
+      const response = await axios.post(`/api/auth/password-reset`, data);
 
       setIsSuccess(true);
       setMessage(response.data.message);

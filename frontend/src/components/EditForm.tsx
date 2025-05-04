@@ -38,9 +38,7 @@ export default function EditForm() {
     const fetchBlog = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
-          `${import.meta.env.VITE_BASEURL}/blog/${id}`
-        );
+        const res = await axios.get(`/api/blog/${id}`);
         if (!res) {
           setNotFound(true);
           setLoading(false);
@@ -92,7 +90,7 @@ export default function EditForm() {
       console.log(imageData.current_public_id);
       console.log(imageData.current_url);
 
-      await axios.put(`${import.meta.env.VITE_BASEURL}/blog`, {
+      await axios.put(`/api/blog`, {
         caption: data.caption,
         url: newImageUrl,
         publicId: newPublicId,

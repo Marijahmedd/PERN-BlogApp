@@ -7,9 +7,7 @@ async function logout() {
   const logout = useStore.getState().logout; // ✅ Get logout function from Zustand
 
   try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_BASEURL}/auth/logout`
-    );
+    const response = await axios.post(`/api/auth/logout`);
     if (response.status === 200) {
       console.log("✅ Logout successful");
     }

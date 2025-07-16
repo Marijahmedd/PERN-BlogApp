@@ -17,4 +17,4 @@ jobs:
           git remote set-url origin https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/mmarijahmed/blogapp.git
       - name: Push to GitLab
         run: |
-          git push --all origin 
+          git push origin main

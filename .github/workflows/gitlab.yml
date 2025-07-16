@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
 
       - name: set up gitlab credentials
         run: |
@@ -17,4 +19,5 @@ jobs:
           git remote set-url origin https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/mmarijahmed/blogapp.git
       - name: Push to GitLab
         run: |
-          git push origin main
+          git push --all gitlab --force
+          git push --tags gitlab --force

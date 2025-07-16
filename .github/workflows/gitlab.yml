@@ -12,6 +12,8 @@ jobs:
 
       - name: set up gitlab credentials
         run: |
+          git fetch --unshallow
+
           git config --global user.name "muhammadmarijahmed"
           git config --global user.email "muhammadmarijahmed@gmail.com"
           git remote set-url origin https://oauth2:${{ secrets.GITLAB_TOKEN }}@gitlab.com/mmarijahmed/pern-blogapp

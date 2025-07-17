@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // src/server.ts
 const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const app_1 = __importDefault(require("./app"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
@@ -16,13 +15,15 @@ if (!process.env.PRIVATE_KEY ||
     console.error("FATAL ERROR: Essential environment variables are missing! Check your .env file and ensure dotenv is loaded correctly.");
     process.exit(1);
 }
-server.use((0, cors_1.default)({
-    origin: `${process.env.BASE_URL}`,
-    credentials: true,
-}));
+// server.use(
+//   cors({
+//     origin: `${process.env.BASE_URL}`,
+//     credentials: true,
+//   })
+// );
 server.use((0, cookie_parser_1.default)());
 server.use(app_1.default); // ✅ CORRECT — using the app instance (with all routes and middleware)
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
     console.log("Server is running on port", PORT);
 });

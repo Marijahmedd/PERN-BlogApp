@@ -20,7 +20,7 @@ build-backend:
     - cd pern-backend
 
     # Generate unique tag
-    - export TAG="${CI_COMMIT_SHORT_SHA}  
+    - export TAG="${CI_COMMIT_SHORT_SHA}"
 
     # Build Docker image
     - docker build -t $DOCKERHUB_USERNAME/pern-backend:$TAG .

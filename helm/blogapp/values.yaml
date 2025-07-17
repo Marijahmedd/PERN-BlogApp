@@ -1,0 +1,9 @@
+ingress:
+  host: blog.marij.me
+
+metadata:
+  namespace: backendtest
+
+images:
+  backend: marijahmed/blog-backend
+  frontend: marijahmed/blog-frontend

@@ -5,5 +5,9 @@ metadata:
   namespace: backendtest
 
 images:
-  backend: marijahmed/blog-backend
-  frontend: marijahmed/blog-frontend
+  backend: 
+    image: "marijahmed/pern-backend"
+    tag: "04f821c0"
+  frontend: 
+    image: "marijahmed/blog-frontend"
+    tag: "latest"

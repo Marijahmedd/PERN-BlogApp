@@ -3,9 +3,15 @@ kind: Ingress
 metadata:
   name: blog-ingress
   namespace: backendtest
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" 
 spec:
   ingressClassName: nginx
-  rules:
+  tls: 
+  - hosts: 
+    - blog.marij.me
+    secretName: blogtls-secret
+  rules: 
   - host: blog.marij.me
     http:
       paths:
